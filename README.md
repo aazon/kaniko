@@ -1007,20 +1007,24 @@ This flag builds only used stages if defined to `true`. Otherwise it builds by
 default all stages, even the unnecessary ones until it reaches the target
 stage / end of Dockerfile
 
-#### Flag `--snapshotMode`
+#### Flag `--snapshotMode` (deprecated)
 
-You can set the `--snapshotMode=<full (default), redo, time>` flag to set how
+This flag is deprecated. Please use `--snapshot-mode`.
+
+#### Flag `--snapshot-mode`
+
+You can set the `--snapshot-mode=<full (default), redo, time>` flag to set how
 kaniko will snapshot the filesystem.
 
-- If `--snapshotMode=full` is set, the full file contents and metadata are
+- If `--snapshot-mode=full` is set, the full file contents and metadata are
   considered when snapshotting. This is the least performant option, but also
   the most robust.
 
-- If `--snapshotMode=redo` is set, the file mtime, size, mode, owner uid and gid
+- If `--snapshot-mode=redo` is set, the file mtime, size, mode, owner uid and gid
   will be considered when snapshotting. This may be up to 50% faster than
   "full", particularly if your project has a large number files.
 
-- If `--snapshotMode=time` is set, only file mtime will be considered when
+- If `--snapshot-mode=time` is set, only file mtime will be considered when
   snapshotting (see [limitations related to mtime](#mtime-and-snapshotting)).
 
 #### Flag `--tar-path`
